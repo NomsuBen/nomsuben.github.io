@@ -91,6 +91,7 @@ var phoneError = document.getElementById("Phone-error");
 var emailError = document.getElementById("Email-error");
 var messageError = document.getElementById("Message-error");
 var submitError = document.getElementById("Submit-error");
+const submit = document.getElementById("submit")
 
 function validateName() {
   var name = document.getElementById("contact-name").value;
@@ -150,9 +151,9 @@ function validateMessage() {
 
 function validateForm() {
   if (
-    !validateName() ||
-    !validatePhone() ||
-    !validateEmail() ||
+    !validateName() &&
+    !validatePhone() &&
+    !validateEmail() &&
     !validateMessage()
   ) {
     submitError.innerHTML = "Please fill in all fields";
@@ -161,3 +162,8 @@ function validateForm() {
   submitError.innerHTML = '<i class="bx bx-check-circle"></i>';
   return true;
 }
+const sendMessage = (event) => {
+  event.preventDefault();
+}
+
+submit.addEventListener("click", sendMessage)
